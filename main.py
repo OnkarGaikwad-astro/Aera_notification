@@ -4,7 +4,7 @@ from google.oauth2 import service_account
 from google.auth.transport.requests import Request
 import requests
 
-SERVICE_ACCOUNT_FILE = "galexi-eebbe-firebase-adminsdk-fbsvc-b0687dd545.json"
+SERVICE_ACCOUNT_FILE = "galexi-eebbe-firebase-adminsdk-fbsvc-f445bdfa82.json"
 PROJECT_ID = "galexi-eebbe"
 
 app = FastAPI()
@@ -68,3 +68,7 @@ def send_notification(data: PushData):
     )
 
     return {"status": res.status_code, "response": res.text}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
